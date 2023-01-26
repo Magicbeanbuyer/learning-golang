@@ -18,4 +18,9 @@ func main() {
 	xiaoHong.firstName = "xiaohong"
 	xiaoHong.lastName = "wang"
 	fmt.Println(xiaoHong)
+
+	var x int = 42
+	var y int
+	y = 3
+	print(x, " ", y)
 }
