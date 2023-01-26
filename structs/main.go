@@ -7,7 +7,7 @@ type person struct {
 	lastName  string
 }
 
-func main() {
+func structOperations() {
 	ming := person{firstName: "ming", lastName: "li"}
 	fmt.Println(ming)
 
@@ -18,9 +18,26 @@ func main() {
 	xiaoHong.firstName = "xiaohong"
 	xiaoHong.lastName = "wang"
 	fmt.Println(xiaoHong)
+}
 
-	var x int = 42
-	var y int
-	y = 3
-	print(x, " ", y)
+// https://www.youtube.com/watch?v=2ybLD6_2gKM
+func learnPointer() {
+	var x int = 42   // variable named x of type integer is set to 4
+	var pX *int = &x // variable named pX of type integer POINTER is set to the address of x
+	// dereferencing, indirecting
+	var y int = *pX // variable named y of type integer is set to the thing pointed to by pX, hence 42
+	// value 42 is COPIED to the address of y
+	y = -1 // change the value of y, not the value of x
+	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
+	*pX = 1000 // change the value of the thing pointed to by pX to 1000
+	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
+	pX = &y // change the value pX to the address of y
+	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
+	*pX = -50 // change the value of the thing pointed to by pX to -50
+	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
+}
+
+func main() {
+	structOperations()
+	learnPointer()
 }

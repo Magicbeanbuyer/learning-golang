@@ -23,6 +23,14 @@ Go is statically typed
 
 := is used for initialization
 
+x := 42
+
+var x int = 42
+
+var x int
+x = 42
+
+
 array: fixed length, elements must have identical type
 slice: varied length, elements must have identical type
 
