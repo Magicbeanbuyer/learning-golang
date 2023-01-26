@@ -43,6 +43,17 @@ func (d deck) saveToFile(filename string) error {
 	return err
 }
 
+func loadDeckFromFile(filename string) deck {
+	byteSlice, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+	}
+	deckString := string(byteSlice)
+	deckSlick := strings.Split(deckString, ",")
+	return deckSlick
+}
+
 /*
 Go does not have class, declare custom type instead
 
@@ -50,4 +61,6 @@ string type var cannot have nil as its value
 
 when a var is declared but not initialized, so-called "zero value" (0, "", false)
 is assigned to it.
+
+go variable uses camelCase
 */

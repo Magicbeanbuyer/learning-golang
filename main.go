@@ -7,8 +7,12 @@ func main() {
 	hand, remainingDeck := cards.deal(5)
 	fmt.Println(hand.toString())
 	remainingDeck.print()
-	err := hand.saveToFile("hand.txt")
-	print(err)
+	fileName := "deck.txt"
+	err := cards.saveToFile(fileName)
+	fmt.Println(err)
+	savedDeck := loadDeckFromFile(fileName)
+	fmt.Println(savedDeck)
+	loadDeckFromFile("fakename")
 }
 
 /* NOTES
