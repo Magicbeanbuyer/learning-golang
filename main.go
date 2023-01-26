@@ -27,4 +27,6 @@ array: fixed length, elements must have identical type
 slice: varied length, elements must have identical type
 
 append does not modify the slice in place, rather return a new slice
+
+go test files have suffix _test, e.g. deck_test.go
 */

@@ -19,7 +19,7 @@ func (d deck) print() {
 
 func newDeck() deck {
 	suits := [4]string{"spades", "hearts", "diamonds", "clubs"}
-	values := [13]string{"a", "1", "2", "3", "4", "5", "6", "7", "8", "10", "j", "q", "k"}
+	values := [4]string{"a", "1", "2", "3"}
 
 	newDeck := deck{}
 
