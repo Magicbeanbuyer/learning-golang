@@ -7,7 +7,7 @@ func TestNewDeck(t *testing.T) {
 	myDeck := newDeck()
 
 	if len(myDeck) != 16 {
-		t.Error("Expect 16 cards, got ", len(myDeck))
+		t.Errorf("Expect 16 cards, got %v", len(myDeck))
 	}
 }
 
