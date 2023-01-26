@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -29,12 +30,17 @@ func newDeck() deck {
 	return newDeck
 }
 
-func deal(d deck, handSize int) (deck, deck) {
+func (d deck) deal(handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
-func toString(d deck) string {
+func (d deck) toString() string {
 	return strings.Join(d, ",")
+}
+
+func (d deck) saveToFile(filename string) error {
+	err := os.WriteFile(filename, []byte(d.toString()), 0666)
+	return err
 }
 
 /*

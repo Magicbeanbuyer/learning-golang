@@ -4,10 +4,11 @@ import "fmt"
 
 func main() {
 	cards := newDeck()
-	hand, remainingDeck := deal(cards, 5)
-	//hand.print()
-	fmt.Println(toString(hand))
+	hand, remainingDeck := cards.deal(5)
+	fmt.Println(hand.toString())
 	remainingDeck.print()
+	err := hand.saveToFile("hand.txt")
+	print(err)
 }
 
 /* NOTES
