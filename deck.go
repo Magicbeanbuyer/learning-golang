@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 type deck []string
@@ -54,6 +56,18 @@ func loadDeckFromFile(filename string) deck {
 	return deckSlick
 }
 
+func (d deck) shuffle() {
+	deckLength := len(d)
+	seed := time.Now().UnixNano()
+	mySource := rand.NewSource(seed)
+	myRandomGenerator := rand.New(mySource)
+
+	for index := range d {
+		randomNumber := myRandomGenerator.Intn(deckLength - 1)
+		d[index], d[randomNumber] = d[randomNumber], d[index]
+	}
+}
+
 /*
 Go does not have class, declare custom type instead
 
@@ -63,4 +77,6 @@ when a var is declared but not initialized, so-called "zero value" (0, "", false
 is assigned to it.
 
 go variable uses camelCase
+
+:= is for declaration + assignment, whereas = is for assignment only.
 */

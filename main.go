@@ -12,7 +12,10 @@ func main() {
 	fmt.Println(err)
 	savedDeck := loadDeckFromFile(fileName)
 	fmt.Println(savedDeck)
-	loadDeckFromFile("fakename")
+	//loadDeckFromFile("fakename")
+	cards.shuffle()
+	cards.print()
+
 }
 
 /* NOTES
