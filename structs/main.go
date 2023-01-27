@@ -2,9 +2,19 @@ package main
 
 import "fmt"
 
+type contactInfo struct {
+	email  string
+	mobile int
+}
+
 type person struct {
-	firstName string
-	lastName  string
+	firstName   string
+	lastName    string
+	contactInfo // declare a field with name contactInfo and type contactInfo
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p) // %+v prints both the field name and the value
 }
 
 func structOperations() {
@@ -17,27 +27,10 @@ func structOperations() {
 	var xiaoHong person
 	xiaoHong.firstName = "xiaohong"
 	xiaoHong.lastName = "wang"
-	fmt.Println(xiaoHong)
-}
-
-// https://www.youtube.com/watch?v=2ybLD6_2gKM
-func learnPointer() {
-	var x int = 42   // variable named x of type integer is set to 4
-	var pX *int = &x // variable named pX of type integer POINTER is set to the address of x
-	// dereferencing, indirecting
-	var y int = *pX // variable named y of type integer is set to the thing pointed to by pX, hence 42
-	// value 42 is COPIED to the address of y
-	y = -1 // change the value of y, not the value of x
-	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
-	*pX = 1000 // change the value of the thing pointed to by pX to 1000
-	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
-	pX = &y // change the value pX to the address of y
-	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
-	*pX = -50 // change the value of the thing pointed to by pX to -50
-	fmt.Printf("x: %v, y: %v, pX: %v\n", x, y, pX)
+	xiaoHong.contactInfo.mobile = 123
+	xiaoHong.print()
 }
 
 func main() {
 	structOperations()
-	learnPointer()
 }
