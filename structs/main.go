@@ -36,3 +36,8 @@ func main() {
 	xiaoHong.update_mobile(456)
 	xiaoHong.print()
 }
+
+/*
+cannot iterate through a struct in a for loop, because the keys are not indexed
+value type
+*/
