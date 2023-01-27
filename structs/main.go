@@ -14,10 +14,14 @@ type person struct {
 }
 
 func (p person) print() {
-	fmt.Printf("%+v", p) // %+v prints both the field name and the value
+	fmt.Printf("%+v\n", p) // %+v prints both the field name and the value
 }
 
-func structOperations() {
+func (p *person) update_mobile(newNumber int) {
+	(*p).contactInfo.mobile = newNumber
+}
+
+func main() {
 	ming := person{firstName: "ming", lastName: "li"}
 	fmt.Println(ming)
 
@@ -29,8 +33,6 @@ func structOperations() {
 	xiaoHong.lastName = "wang"
 	xiaoHong.contactInfo.mobile = 123
 	xiaoHong.print()
-}
-
-func main() {
-	structOperations()
+	xiaoHong.update_mobile(456)
+	xiaoHong.print()
 }
