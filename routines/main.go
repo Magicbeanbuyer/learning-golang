@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func main() {
@@ -18,8 +19,16 @@ func main() {
 		go healthCheck(url, statusChannel)
 	}
 
-	for {
-		go healthCheck(<-statusChannel, statusChannel) // mind blown 🤯
+	for link := range statusChannel {
+		go func(copiedLink string) {
+			/*
+				putting the pause within the function literal, a.k.a. lambda function, makes sure that a child routine
+				is spawned immediately after a message is sent to the channel, and the child routine pauses before it
+				sends another request to the server.
+			*/
+			time.Sleep(1 * time.Second)
+			healthCheck(copiedLink, statusChannel) // mind blown 🤯
+		}(link)
 	}
 }
 
