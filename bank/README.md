@@ -2,17 +2,15 @@
 
 ## Postgres
 ```bash
-docker run --name some-postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123 -d postgres
-
-docker exec -it some-postgres psql -U root
-
-docker logs some-postgres
+docker logs postgres15
+docker exec -it postgres15 bash
+docker exec -it postgres15 psql -U root
+docker exec -it postgres15 psql -U root simple_bank
 ```
 
 Run a query in the container console:
 ```postgresql
 select now();
-
 \q # quit
 ```
 
