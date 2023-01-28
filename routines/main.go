@@ -8,8 +8,8 @@ import (
 func main() {
 	urls := []string{
 		"https://github.com/",
-		"https://www.linkedin.com/",
-		"https://www.reddit.com/",
+		"https://www.bing.com/",
+		"https://www.google.com/",
 	}
 
 	statusChannel := make(chan string)
@@ -18,17 +18,19 @@ func main() {
 		go healthCheck(url, statusChannel)
 	}
 
-	for i := 0; i < 3; i++ {
-		fmt.Println(<-statusChannel)
+	for {
+		go healthCheck(<-statusChannel, statusChannel) // mind blown 🤯
 	}
 }
 
 func healthCheck(url string, channel chan string) {
 	_, err := http.Get(url)
 	if err != nil {
-		channel <- url + " is down."
+		fmt.Printf("%v is down.\n", url)
+		channel <- url
 	}
-	channel <- url + " is healthy! 🤟"
+	fmt.Printf("%v is healthy! 🤟\n", url)
+	channel <- url
 }
 
 /*
