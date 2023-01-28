@@ -18,3 +18,16 @@ select now();
 ```bash
 migrate create -ext sql -dir db/migration -seq init_schema
 ```
+
+## Dependencies
+```bash
+brew install golang-migrate sqlc
+```
+
+### sqlc
+Generate `sqlc.yaml`
+```bash
+sqlc init
+mkdir db/sqlc
+mkdir db/query
+```
