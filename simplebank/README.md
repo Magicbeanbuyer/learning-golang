@@ -24,10 +24,17 @@ migrate create -ext sql -dir db/migration -seq init_schema
 brew install golang-migrate sqlc
 ```
 
-### sqlc
+## sqlc
 Generate `sqlc.yaml`
 ```bash
 sqlc init
 mkdir db/sqlc
 mkdir db/query
+```
+
+
+## Go
+```bash
+go mod init simplebank
+go mod tidy
 ```
