@@ -37,4 +37,9 @@ mkdir db/query
 ```bash
 go mod init simplebank
 go mod tidy
+
+go get github.com/lib/pq
+go mod tidy # to remove `// indirect` from go.mod
+
+go clean -testcache
 ```
