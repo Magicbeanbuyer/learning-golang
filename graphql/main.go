@@ -124,6 +124,8 @@ func main() {
 	// main entry point for every graphql query coming into the graphql application
 	rootQuery := graphql.NewObject(rootQueryConf)
 
+	// what fields can we select? What kinds of objects might they return?
+	//What fields are available on those sub-objects?
 	schemaConf := graphql.SchemaConfig{
 		Query: rootQuery,
 	}
