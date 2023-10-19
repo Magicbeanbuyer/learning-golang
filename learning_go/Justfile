@@ -1,0 +1,3 @@
+go_root:
+    go env GOROOT
+    go env GOPATH
