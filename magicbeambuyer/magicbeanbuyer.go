@@ -1,4 +1,4 @@
-package magicbeambuyer
+package main
 
 import (
 	"fmt"

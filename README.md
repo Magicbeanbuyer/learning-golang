@@ -13,6 +13,9 @@ rename a module
 `gonew github.com/Magicbeanbuyer/learning-golang/module_template github.com/Magicbeanbuyer/learning-golang/<NAME>`
 create a new module from template.
 
+`go install <REPO_URL>@<VERSION>`
+compile source code into binary and install it to `GOPATH/bin`
+
 ## Concepts
 
 Module
@@ -36,7 +39,7 @@ A package's exported constants, variables and functions all start with an upperc
 
 third party tools path
 
-`go install` installs modules to `GOPATH`
+`go install` installs modules to `GOPATH/bin`
 exported via .zshrc
 
 `GOPATH`
