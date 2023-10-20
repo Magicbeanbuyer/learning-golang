@@ -3,10 +3,6 @@
 		{
 			"name": "learning-golang",
 			"path": "."
-		},
-		{
-			"name": "package_example",
-			"path": "../package_example"
 		}
 	],
 	"settings": {

@@ -1,8 +1,6 @@
-.idea
-
-playground/
-
 .DS_Store
+*.iml
+.idea
 
 # Binaries for programs and plugins
 *.exe
