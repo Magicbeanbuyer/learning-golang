@@ -21,14 +21,21 @@ has a global unique identifier
 everything inside a module are version together
 
 Package
-one package per directory
-package and dir don't have to have the same name, import dir name, and call by package name https://golangbyexample.com/package-folder-name-golang/
+
 a folder (and subfolders) of `.go` files
+
+one package per directory
+
+package and dir don't have to have the same name, import dir name, and call by package name https://golangbyexample.com/package-folder-name-golang/
+
 A package's exported constants, variables and functions all start with an uppercase letter in their name
 
 ## Envs
+
 `GOPATH`
+
 third party tools path
+
 `go install` installs modules to `GOPATH`
 exported via .zshrc
 

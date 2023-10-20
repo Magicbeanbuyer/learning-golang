@@ -1,4 +1,4 @@
-module magicbeanbuyer
+module github.com/Magicbeanbuyer/learning-golang/magicbeanbuyer
 
 go 1.19
 
