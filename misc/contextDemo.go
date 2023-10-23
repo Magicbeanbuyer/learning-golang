@@ -1,4 +1,4 @@
-package misc
+package main
 
 // https://www.educative.io/answers/what-are-tags-in-golang
 import (
@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func wrapper_cx() {
 	ctx := context.Background()
 	ctx = enrichContext(ctx)
 	fetchContext(ctx)

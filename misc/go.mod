@@ -1,4 +1,4 @@
-module misc
+module github.com/Magicbeanbuyer/learning-golang/misc
 
 go 1.19
 

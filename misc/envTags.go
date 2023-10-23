@@ -1,6 +1,4 @@
-package misc
-
-//package main
+package main
 
 import (
 	"fmt"
@@ -18,7 +16,7 @@ type config struct {
 	TempFolder   string        `env:"TEMP_FOLDER" envDefault:"${HOME}/tmp" envExpand:"true"`
 }
 
-func main() {
+func wrapper_et() {
 	cfg := config{}
 	if err := env.Parse(&cfg); err != nil {
 		fmt.Printf("%+v\n", err)

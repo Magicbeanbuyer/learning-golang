@@ -1,13 +1,13 @@
-package misc
+// package misc
 
-//package main
+package main
 
 import (
 	"fmt"
 	"reflect"
 )
 
-func main() {
+func wrapper_tag() {
 	type Me struct {
 		Firstname string `mytag:"FirstName"`
 		Lastname  string `mytag:"LastName"`
