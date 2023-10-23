@@ -2,7 +2,9 @@ package main
 
 import "fmt"
 
-func printMap(m map[int]int) {
+// map[KeyType]ValueType
+
+func printMap(m map[string]int) {
 	for k, v := range m {
 		fmt.Printf("%v, %v\n", k, v)
 	}
@@ -16,13 +18,12 @@ func main() {
 	//one[1] = 1 -> panic: assignment to entry in nil map
 	two[2] = 2
 
-	three := map[int]int{
-		3: 3,
-		4: 4,
-		5: 5,
-		6: 6,
+	three := map[string]int{
+		"3": 3,
+		"4": 4,
+		"5": 5,
 	}
-	delete(three, 4)
+	delete(three, "4")
 	fmt.Printf("%+v, %+v, %+v\n", one, two, three)
 
 	printMap(three)
