@@ -18,6 +18,7 @@ func (p person) print() {
 }
 
 func (p *person) update_mobile(newNumber int) {
+	// p is a COPY of the pointer from the outer scope, not the outer scope pointer itself
 	(*p).contactInfo.mobile = newNumber
 }
 
@@ -35,6 +36,18 @@ func main() {
 	xiaoHong.print()
 	xiaoHong.update_mobile(456)
 	xiaoHong.print()
+
+	var ann person
+	ann.firstName = "ann"
+	ann.print()
+
+	person_empty_ptr := &person{}
+	fmt.Println(person_empty_ptr == nil) // false
+	person_empty_ptr.print()
+
+	var person_nil_ptr *person
+	fmt.Println(person_nil_ptr == nil) // true
+	// person_nil_ptr.print() panic: runtime error: invalid memory address or nil pointer dereference
 }
 
 /*

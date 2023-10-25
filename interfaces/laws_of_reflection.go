@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"reflect"
 )
 
@@ -17,6 +18,9 @@ func wrapper_reflect() {
 	fmt.Println("jimmy")
 	fmt.Println("type: ", reflect.TypeOf(jimmy)) // main.human !!!
 	fmt.Println("value: ", jimmy_value)
-	// Kind of a reflection object describes the underlying type, not the static type. 
+	// Kind of a reflection object describes the underlying type, not the static type.
 	fmt.Println("kind: ", jimmy_value.Kind()) // struct, because human is a struct
+	std := os.Stdin
+	file_ptr := reflect.ValueOf(std)
+	fmt.Println("Stdin kind: ", file_ptr.Kind()) // ptr, *os.File
 }

@@ -2,16 +2,6 @@ package main
 
 import "fmt"
 
-func zero(pI *int) {
-	*pI = 0
-}
-
-type myInt int
-
-func (m *myInt) zeroMyInt() {
-	*m = 0
-}
-
 func main() {
 	var x int = 42 // variable named x of type integer is set to 4
 
@@ -37,7 +27,49 @@ func main() {
 	zero(&i) // a normal function has to take the address variable
 	fmt.Println(i)
 
+	call_by_value_pointer_copies()
+	change_pointed_value_by_dereferencing()
+}
+
+func zero(pI *int) {
+	*pI = 0
+}
+
+type myInt int
+
+func change_pointed_value_by_dereferencing() {
 	ii := myInt(3) // var ii myInt = 3
+	fmt.Println("ii value: ", ii)
 	ii.zeroMyInt() // a receiver function can take the value variable directly and infer the address
-	fmt.Println(ii)
+	fmt.Println("ii value: ", ii)
+}
+
+func (m *myInt) zeroMyInt() {
+	fmt.Println("Dereference the pointer and change the value of the pointed variable.")
+	*m = 0
+}
+
+func (m *myInt) print_pointer_receiver_address_and_value() {
+	// Learning Go p.113
+	fmt.Printf("address of m: %v value of m: %v\n", &m, m)
+	fmt.Println("The address of the pointer from within the method differs from the address of the outer scope " +
+		"pointers. Because a copy of the pointer is passed to the method.")
+	if m == nil {
+		/*
+			m := &myInt(5) doesn't work
+			cannot take address of myInt(5) (constant 5 of type myInt)
+			see Learning Go p.110
+		*/
+		x := myInt(5)
+		m = &x
+	}
+	fmt.Printf("address of m: %v value of m: %v\n", &m, m)
+}
+
+
+func call_by_value_pointer_copies() {
+	var num_nil_ptr *myInt
+	fmt.Printf("address of num_nil_ptr: %v value of num_nil_ptr: %v\n", &num_nil_ptr, num_nil_ptr)
+	num_nil_ptr.print_pointer_receiver_address_and_value()
+	fmt.Println()
 }
